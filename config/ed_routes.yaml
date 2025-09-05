@@ -1,9 +1,10 @@
 # Replace these with the real paths from your Postman doc.
 # Keep {device_id} placeholders exactly where the Postman path has IDs.
-sites_list:       "/api/v2/sites"
-devices_list:     "/api/v2/devices"
-device_get:       "/api/v2/devices/{device_id}"
-alarms_list:      "/api/v2/alarms"
-vnf_deploy:       "/api/v2/devices/{device_id}/vnfs/deploy"
+#sites_list:       "/api/v2/sites"
+#devices_list:     "/api/v2/devices"
+#device_get:       "/api/v2/devices/{device_id}"
+#alarms_list:      "/api/v2/alarms"
+#vnf_deploy:       "/api/v2/devices/{device_id}/vnfs/deploy"
+get_MD: "https://{{domain_name}}/col/md?fltr={"/nm":"{{tenant_name}}"}"
 
 # If your Postman doc shows different versions (e.g., /rest/v1/...), put them here.
