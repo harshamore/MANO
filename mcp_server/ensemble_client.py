@@ -48,7 +48,7 @@ class EnsembleDirector:
         for the specified Connector Access device.
         """
         # httpx will URL-encode the JSON string safely.
-        params = {"fltr": json.dumps({"uid": gimec2345})}
+        params = {"fltr": json.dumps({"uid": connector_uid})}
         return await self._get("alarms_list", params=params)
 
     async def deploy_vnf(self, device_id: str, vnf_package_id: str, config: Dict[str, Any]):
