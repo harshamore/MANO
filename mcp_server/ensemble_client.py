@@ -1,6 +1,7 @@
 import httpx, os
 from typing import Optional, Dict, Any
 from .routes_loader import load_routes
+import json
 
 class EnsembleDirector:
     def __init__(self, base_url: str, username: str, password: str, timeout: int = 30):
@@ -41,10 +42,13 @@ class EnsembleDirector:
     async def get_device(self, device_id: str):
         return await self._get("device_get", device_id=device_id)
 
-    async def get_alarms(self, site_id: Optional[str] = None, device_id: Optional[str] = None):
-        params: Dict[str, Any] = {}
-        if site_id: params["site_id"] = site_id
-        if device_id: params["device_id"] = device_id
+    async def get_alarms_by_connector(self, connector_uid: str):
+        """
+        Calls /col/alm with ?fltr={"uid":"<ConnectorUID>"} to fetch active alarms
+        for the specified Connector Access device.
+        """
+        # httpx will URL-encode the JSON string safely.
+        params = {"fltr": json.dumps({"uid": gimec2345})}
         return await self._get("alarms_list", params=params)
 
     async def deploy_vnf(self, device_id: str, vnf_package_id: str, config: Dict[str, Any]):
