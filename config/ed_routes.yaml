@@ -4,6 +4,7 @@
 #devices_list:     "/api/v2/devices"
 #device_get:       "/api/v2/devices/{device_id}"
 #alarms_list:      "/api/v2/alarms"
+alarms_list:       "https://ui.poc3.prod.saasmano.com/col/alm"
 #vnf_deploy:       "/api/v2/devices/{device_id}/vnfs/deploy"
 get_MD: "https://{{domain_name}}/col/md?fltr={"/nm":"{{tenant_name}}"}"
 
