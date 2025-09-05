@@ -24,8 +24,11 @@ async def get_device(device_id: str) -> dict:
     return await (await ED()).get_device(device_id)
 
 @mcp.tool()
-async def get_alarms(site_id: str | None = None, device_id: str | None = None) -> dict:
-    return await (await ED()).get_alarms(site_id=site_id, device_id=device_id)
+async def get_alarms(connector_uid: str) -> dict:
+    """
+    Get active alarms for a specific Connector (ACC1UID).
+    """
+    return await (await ED()).get_alarms_by_connector(connector_uid)
 
 @mcp.tool()
 async def deploy_vnf(device_id: str, vnf_package_id: str, config: dict = {}) -> dict:
