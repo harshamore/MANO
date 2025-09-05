@@ -87,8 +87,8 @@ if prompt:
             "name":"get_device","description":"Get device details",
             "parameters":{"type":"object","properties":{"device_id":{"type":"string"}},"required":["device_id"]}}},
         {"type": "function","function":{
-            "name":"get_alarms","description":"Get alarms",
-            "parameters":{"type":"object","properties":{"site_id":{"type":["string","null"]},"device_id":{"type":["string","null"]}},"required":[]}}},
+            "name":"get_alarms","description": "Get active alarms for a specific Connector Access device (by UID).",
+            "parameters":{"type":"object","properties":{"connector_uid": {"type": "string", "description": "ACC1UID (Connector UID)"},}"required": ["connector_uid"]},},},
         {"type": "function","function":{
             "name":"deploy_vnf","description":"Deploy a VNF (ask for confirmation first)",
             "parameters":{"type":"object","properties":{"device_id":{"type":"string"},"vnf_package_id":{"type":"string"},"config":{"type":"object","default":{}}},"required":["device_id","vnf_package_id"]}}}
